@@ -112,9 +112,9 @@ header {
   padding-left: 20px;
 }
 .nav {
+  position: relative;
   width: 1020px;
   margin: 0 auto;
-  height: 30px;
   color: #666;
   line-height: 30px;
   font-size: 20px;
@@ -123,6 +123,15 @@ header {
   width: 170px;
   color: #666;
   text-align: center;
+  height: 30px;
+}
+.nav a .triangle {
+  border-top: 10px solid #ffffff;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  position: relative;
+  left: 7px;
+  top: 19px;
 }
 .nav a.active {
   background-color: #c63636;
@@ -131,7 +140,11 @@ header {
 .nav a:hover {
   background-color: #c63636;
 }
-.alert-box {
+.alert-box,
+.modify-box,
+.comman-alert {
+  display: none;
+  z-index: 9;
   border: 1px solid #4cb4cc;
   overflow: hidden;
   width: 400px;
@@ -142,9 +155,11 @@ header {
   top: 50%;
   margin-left: -200px;
   margin-top: -150px;
-  display: none;
 }
-.alert-box .alert-header {
+.alert-box .alert-header,
+.modify-box .alert-header,
+.comman-alert .alert-header {
+  position: relative;
   font-size: 18px;
   line-height: 50px;
   text-align: center;
@@ -155,11 +170,29 @@ header {
   background: #c3c3c3;
   border-bottom: 1px solid #4cb4cc;
 }
-.alert-box .alert-body {
+.alert-box .alert-header span,
+.modify-box .alert-header span,
+.comman-alert .alert-header span {
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  line-height: 19px;
+  display: inline-block;
+  position: absolute;
+  right: 14px;
+  background-color: #4cb4cc;
+  color: #fff;
+  top: 14px;
+}
+.alert-box .alert-body,
+.modify-box .alert-body,
+.comman-alert .alert-body {
   text-align: center;
   margin-top: 30px;
 }
-.alert-box .alert-body input {
+.alert-box .alert-body input,
+.modify-box .alert-body input,
+.comman-alert .alert-body input {
   width: 150px;
   height: 40px;
   border: 1px solid #4cb4cc;
@@ -169,21 +202,162 @@ header {
   font-weight: 500;
   text-align: center;
 }
-.alert-box .alert-body span {
+.alert-box .alert-body span,
+.modify-box .alert-body span,
+.comman-alert .alert-body span {
   color: #4cb4cc;
   font-weight: 700;
   display: inline-block;
   margin: 0 15px;
 }
-.alert-box .alert-body .yes-btn {
+.alert-box .alert-body .yes-btn,
+.modify-box .alert-body .yes-btn,
+.comman-alert .alert-body .yes-btn {
   display: inline-block;
-  width: 150px;
+  width: 360px;
   height: 40px;
   line-height: 40px;
   background-color: #2aaecc;
   color: #fff;
   font-size: 18px;
   margin-top: 50px;
+}
+.comman-alert {
+  display: block;
+}
+.comman-alert p {
+  font-size: 20px;
+  font-weight: bold;
+}
+.modify-box {
+  display: none;
+  height: 297px;
+  text-align: center;
+}
+.modify-box .modify-body {
+  width: 80%;
+  margin: 20px auto;
+}
+.modify-box .modify-body ul {
+  border: 1px solid #999;
+  display: inline-block;
+  height: 150px;
+  width: 45%;
+  float: left;
+}
+.modify-box .modify-body ul .modify-lists {
+  display: none;
+  border: none;
+  width: 100%;
+  position: relative;
+  right: 0;
+  margin-right: 0;
+  height: 120px;
+}
+.modify-box .modify-body ul li {
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  position: relative;
+}
+.modify-box .modify-body ul li:hover {
+  color: #4cb4cc;
+}
+.modify-box .modify-body ul li.active {
+  color: #4cb4cc;
+}
+.modify-box .modify-body ul li.head {
+  color: #666;
+  font-weight: 700;
+  border-bottom: 1px solid #999999;
+}
+.modify-box .modify-body ul li.head .triangle {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  border-top: 10px solid #4cb4cc;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+}
+.modify-box .modify-body ul .newli {
+  display: none;
+  position: relative;
+  color: #4cb4cc;
+}
+.modify-box .modify-body ul .newli .no {
+  width: 14px;
+  height: 14px;
+  font-size: 26px;
+  line-height: 10px;
+  position: absolute;
+  top: 7px;
+  right: 11px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: #4cb4cc;
+  color: #fff;
+}
+.modify-box .modify-body ul:first-child {
+  position: relative;
+  margin-right: 10%;
+}
+.modify-box .yes-btn {
+  display: inline-block;
+  width: 360px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #2aaecc;
+  color: #fff;
+  font-size: 18px;
+  margin-top: 0;
+}
+.alert-money-box {
+  display: none;
+  height: 270px;
+}
+.alert-money-box .alert-body {
+  color: #666;
+}
+.alert-money-box .alert-body p {
+  line-height: 30px;
+  position: relative;
+  text-align: left;
+  margin-top: 10px;
+}
+.alert-money-box .alert-body p input {
+  height: 30px;
+}
+.alert-money-box .alert-body p .lable {
+  display: inline-block;
+  width: 70px;
+  text-align: right;
+  color: #666666;
+}
+.alert-money-box .alert-body p .operation {
+  right: 5px;
+  position: absolute;
+  display: inline-block;
+}
+.alert-money-box .alert-body .yes-btn {
+  margin-top: 20px;
+}
+.alert-admin-box .alert-body input {
+  width: 200px;
+  margin-top: 20px;
+}
+.alert-admin-box .alert-body .money-btn {
+  margin-top: 20px ;
+  width: 200px;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  background-color: #2aaecc;
+  color: #fff;
+  font-size: 18px;
+}
+.alert-admin-box .alert-body p {
+  margin-top: 10px;
+  font-size: 20px;
 }
 .login-box,
 .pay-box {
@@ -201,6 +375,31 @@ header {
 .pay-box .alert-body .yes-btn {
   width: 200px;
   margin-top: 0;
+}
+.mainbox {
+  position: relative;
+}
+.mainbox ul.order-select {
+  position: absolute;
+  top: 0;
+  left: 92px;
+  display: none;
+}
+.mainbox ul.order-select li {
+  height: 30px;
+  background-color: rgba(74, 74, 74, 0.87);
+  color: #fff;
+  width: 170px;
+  text-align: center;
+  line-height: 30px;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+}
+.mainbox ul.order-select li:hover {
+  color: #2aaecc;
+}
+.mainbox ul.order-select li.active {
+  color: #2aaecc;
 }
 .mainbox .sortbox {
   height: 34px;

@@ -50,9 +50,9 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
   }
 }
 .nav{
+  position: relative;
   width: 1020px;
   margin: 0 auto;
-  height: 30px;
   color: #666;
   line-height: 30px;
   font-size: 20px;
@@ -60,6 +60,15 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
     width: 170px;
     color: #666;
     text-align: center;
+    height: 30px;
+    .triangle{
+      border-top:10px solid #ffffff;
+      border-left:6px solid transparent;
+      border-right:6px solid transparent;
+      position: relative;
+      left: 7px;
+      top: 19px;
+    }
   }
   a.active{
     background-color: #c63636;
@@ -70,7 +79,9 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
   }
 }
 //弹窗
-.alert-box{
+.alert-box,.modify-box,.comman-alert{
+  display: none;
+  z-index: 9;
   border:1px solid #4cb4cc;
   overflow: hidden;
   width: 400px;
@@ -81,8 +92,8 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
   top:50%;
   margin-left:-200px;
   margin-top: -150px;
-  display: none;
   .alert-header{
+    position: relative;
     font-size: 18px;
     line-height:50px;
     text-align: center;
@@ -92,6 +103,18 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
     height: 50px;
     background: #c3c3c3;
     border-bottom: 1px solid #4cb4cc;
+    span{
+      width: 20px;
+      height: 20px;
+      font-size: 20px;
+      line-height: 19px;
+      display: inline-block;
+      position: absolute;
+      right: 14px;
+      background-color: #4cb4cc;
+      color: #fff;
+      top: 14px;
+    }
   }
   .alert-body{
     text-align: center;
@@ -114,7 +137,7 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
     }
     .yes-btn{
       display: inline-block;
-      width: 150px;
+      width: 360px;
       height: 40px;
       line-height: 40px;
       background-color: #2aaecc;
@@ -124,6 +147,154 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
     }
   }
 }
+//动态公共弹窗
+.comman-alert{
+  display: block;
+  p{
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+//修改权限的弹窗
+.modify-box{
+  display: none;
+  height: 297px;
+  text-align: center;
+  .modify-body{
+    width: 80%;
+    margin: 20px auto;
+    ul{
+      border:1px solid #999;;
+      display: inline-block;
+      height: 150px;
+      width: 45%;
+      float: left;
+      .modify-lists{
+        display: none;
+        border:none;
+        width: 100%;
+        position: relative;
+        right: 0;
+        margin-right: 0;
+        height: 120px;
+      }
+      li{
+        cursor: pointer;
+        height: 30px;
+        line-height: 30px;
+        position: relative;
+      }
+      li:hover{
+        color: #4cb4cc;
+      }
+      li.active{
+        color: #4cb4cc;
+      }
+      li.head{
+        color: #666;
+        font-weight: 700;
+        border-bottom: 1px solid #999999;
+        .triangle{
+          position: absolute;
+          top:10px;
+          right: 30px;
+          border-top:10px solid #4cb4cc;
+          border-left:6px solid transparent;
+          border-right: 6px solid transparent;
+        }
+      }
+      .newli{
+        display: none;
+        position: relative;
+        color: #4cb4cc;
+        .no{
+          width: 14px;
+          height: 14px;
+          font-size: 26px;
+          line-height: 10px;
+          position: absolute;
+          top: 7px;
+          right: 11px;
+          display: inline-block;
+          border-radius: 50%;
+          background-color: #4cb4cc;
+          color: #fff;
+        }
+      }
+
+    }
+    ul:first-child{
+      position: relative;
+      margin-right: 10%;
+    }
+  }
+  .yes-btn{
+    display: inline-block;
+    width: 360px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #2aaecc;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 0;
+  }
+}
+//打款弹窗
+.alert-money-box{
+  display: none;
+  height: 270px;
+  .alert-body{
+    color: #666;
+    p{
+      input{
+        height: 30px;
+      }
+      line-height: 30px;
+      position: relative;
+      text-align: left;
+      margin-top: 10px;
+      .lable{
+        display: inline-block;
+        width: 70px;
+        text-align: right;
+        color: #666666;
+      }
+      .operation{
+        right: 5px;
+        position: absolute;
+        display: inline-block;
+      }
+    }
+    .yes-btn{
+      margin-top: 20px;
+    }
+  }
+}
+//输入管理员密码弹窗
+.alert-admin-box{
+  .alert-body{
+    input{
+      width: 200px;
+      margin-top: 20px;
+    }
+    .money-btn{
+      margin-top: 20px ;
+      width: 200px;
+      display: inline-block;
+      height: 40px;
+      line-height: 40px;
+      background-color: #2aaecc;
+      color: #fff;
+      font-size: 18px;
+    }
+    p{
+      margin-top: 10px;
+      font-size: 20px;
+    }
+  }
+}
+//修改登陆支付密码的弹窗
 .login-box,.pay-box{
   display: none;
   .alert-body{
@@ -141,6 +312,29 @@ header{width: 100%;height: 125px;overflow: hidden;border-bottom:2px solid #c6363
 //用户订单
 //代理商订单
 .mainbox{
+  position: relative;
+  ul.order-select{
+    position: absolute;
+    top: 0;
+    left: 92px;
+    display: none;
+    li{
+      height: 30px;
+      background-color: rgba(74, 74, 74, 0.87);
+      color: #fff;
+      width: 170px;
+      text-align: center;
+      line-height: 30px;
+      border-bottom: 1px solid #fff;
+      cursor: pointer;
+    }
+    li:hover{
+      color: #2aaecc;
+    }
+    li.active{
+      color:#2aaecc;
+    }
+  }
   .sortbox{
     height: 34px;
     margin-top: 31px;
