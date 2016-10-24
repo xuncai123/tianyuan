@@ -192,7 +192,10 @@ header {
 }
 .alert-box .alert-body input,
 .modify-box .alert-body input,
-.comman-alert .alert-body input {
+.comman-alert .alert-body input,
+.alert-box .alert-body .date,
+.modify-box .alert-body .date,
+.comman-alert .alert-body .date {
   width: 150px;
   height: 40px;
   border: 1px solid #4cb4cc;
@@ -201,6 +204,19 @@ header {
   font-size: 14px;
   font-weight: 500;
   text-align: center;
+}
+.alert-box .alert-body .date,
+.modify-box .alert-body .date,
+.comman-alert .alert-body .date {
+  display: inline-block;
+}
+.alert-box .alert-body input[type="date"],
+.modify-box .alert-body input[type="date"],
+.comman-alert .alert-body input[type="date"] {
+  height: 20px;
+  line-height: 20px;
+  border: none;
+  margin-top: 10px;
 }
 .alert-box .alert-body span,
 .modify-box .alert-body span,

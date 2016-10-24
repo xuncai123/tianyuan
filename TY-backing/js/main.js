@@ -3,7 +3,6 @@
  */
 $(document).ready(function () {
     function init() {
-
         selestTY();//普通用户订单下拉单
         alertTY();//弹窗
         modifyTY();////账户管理页面修改权限
@@ -28,12 +27,12 @@ $(document).ready(function () {
         });
 
         select.box.bind('mouseleave',function () {
-            $(this).slideUp(2000);
+            $(this).slideUp(1000);
         });
 
         select.list.bind('click',function () {
             $(this).addClass("active").siblings("li").removeClass("active");
-            select.box.slideUp(2000);
+            select.box.slideUp(500);
         });
     }
 
@@ -56,23 +55,24 @@ $(document).ready(function () {
         alert.paying=$("table .orange .paying");//表格中打款按钮
         alert.moneybtn=$(".alert-admin-box .money-btn");//激发打款弹窗的按钮
 
+        alert.moneyin=$(".alert-money-box .moneyin");//账户余额
+        alert.moneyout=$(".alert-money-box .moneyout");//返利的余额
+
         alert.close =$(".close-btn");//关闭弹窗的按钮
         alert.confirm=$(".yes-btn");//弹窗的确定按钮
 
         alert.paying.bind("click",function () {
+            var mybalance= $(this).parent("td").siblings("td.mybalance").text();
+            var myrebate=$(this).parent("td").siblings("td.myrebate").text();
 
+            alert.moneyin.text(mybalance);
+            alert.moneyout.text( myrebate);
             alert.adminbox.show();
 
         });
 
         alert.moneybtn.bind("click",function () {
-
-            var result=pass();
-            if (result =="true"){
                 alert.moneybox.show();
-            }else {
-                alert.moneybox.hide();
-            }
         });
 
 
