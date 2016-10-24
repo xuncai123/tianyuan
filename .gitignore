@@ -2,7 +2,7 @@
 ## Eclipse
 #################
 .xml
-
+.iml
 *.pydevproject
 .project
 .metadata
