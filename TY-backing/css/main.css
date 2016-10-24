@@ -409,8 +409,12 @@ header {
   font-size: 16px;
   color: #666;
 }
+.mainbox .sortbox .date {
+  display: inline-block;
+}
 .mainbox .sortbox select,
-.mainbox .sortbox input {
+.mainbox .sortbox input,
+.mainbox .sortbox .date {
   text-align: center;
   width: 130px;
   border: 1px solid #dcdcdc;
@@ -418,6 +422,12 @@ header {
   height: 32px;
   line-height: 32px;
   font-size: 14px;
+}
+.mainbox .sortbox input[type="date"] {
+  margin-top: 0;
+  height: 18px;
+  border: none;
+  line-height: 18px;
 }
 .mainbox .sortbox input[type="text"] {
   margin-right: 15px;

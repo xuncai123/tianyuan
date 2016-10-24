@@ -66,11 +66,17 @@ $(document).ready(function () {
         });
 
         alert.moneybtn.bind("click",function () {
-            // $.ajax({
-            //     //发送管理员密码判断是否正确
-            // });
-            alert.moneybox.show();
+
+            var result=pass();
+            if (result =="true"){
+                alert.moneybox.show();
+            }else {
+                alert.moneybox.hide();
+            }
         });
+
+
+
         alert.out.bind("click",function () {
             alert.alertbox.show();
         });
@@ -116,6 +122,7 @@ $(document).ready(function () {
             modify.box.show();
         });
 
+
         modify.icon.bind('click',function () {
             modify.lists.slideToggle();
         });
@@ -124,6 +131,7 @@ $(document).ready(function () {
             var n=$(this).index();
             $(this).addClass("active");
             modify.newli[n].style.display="block";
+
         });
 
         modify.delete.bind("click",function () {
@@ -132,7 +140,17 @@ $(document).ready(function () {
             var li = $(modify.li[n]);
             li.removeClass("active");
         });
+
+        var select=[];//记录被选中的li的部分
+
         modify.confirm.bind("click",function () {
+
+            $.each(modify.newli,function (i) {
+                if (modify.newli.eq(i).css("display")=="block"){
+                    select.push(i)
+                }
+            });
+            alert(select);
             modify.box.hide();
         });
 
